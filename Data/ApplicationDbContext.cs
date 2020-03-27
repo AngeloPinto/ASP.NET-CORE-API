@@ -8,6 +8,6 @@ namespace ASPNetCore_API.Data
     {
         public DbSet<Produto> Produtos { get; set; }
 
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base() {}
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) {}
     }
 }
