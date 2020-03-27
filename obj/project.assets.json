@@ -859,7 +859,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "Pomelo.EntityFrameworkCore.MySql >= *"
+      "Pomelo.EntityFrameworkCore.MySql >= 3.1.1"
     ]
   },
   "packageFolders": {
@@ -901,7 +901,7 @@
         "dependencies": {
           "Pomelo.EntityFrameworkCore.MySql": {
             "target": "Package",
-            "version": "[*, )"
+            "version": "[3.1.1, )"
           }
         },
         "imports": [
