@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ASPNetCore_API.Data;
 using ASPNetCore_API.Models;
+using System.Linq;
+using System;
 
 namespace ASPNetCore_API.Controllers
 {
@@ -21,13 +23,19 @@ namespace ASPNetCore_API.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(new { nome = "Curso de AspNET Core", conteudo = "Criando um controller" });
+            var Produtos = _database.Produtos.ToList();
+            return Ok(new { Produtos });
         }
 
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            return Ok(new { nome = "Curso de AspNET Core", conteudo = "Criando um controller", key = id });
+            try {
+                var Produto = _database.Produtos.Find(id);
+                return Ok(Produto);
+            } catch(Exception e) {
+                return BadRequest(new {msg = "Id Inválido", error = e});
+            }
         }
 
         [HttpPost]
